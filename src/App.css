@@ -1,0 +1,563 @@
+.centrar {
+    margin-top: 100px;
+    opacity: 5%;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.oculto{
+    display: none;
+}
+
+
+@font-face{
+    font-family: 'Pangram-Bold';
+    src: url(/static/media/Pangram-Bold.cda477ef.otf);
+}
+
+@font-face{
+    font-family: 'Pangram-Regular';
+    src: url(/static/media/Pangram-Regular.6c266f52.otf);
+}
+/* Titulo producto */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1qvr50w-MuiTypography-root {
+    font-family: 'Pangram-Bold';    
+    text-transform: uppercase;
+}
+
+.estilos{
+    font-family: 'Pangram-Bold';    
+}
+/* precio producto */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-nrdprl-MuiTypography-root{
+    font-family: 'Pangram-Bold';
+    font-weight: 600;
+    font-size: 20px;
+    color: #ad0f0f;
+}
+/* Descripcion producto */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-10wpov9-MuiTypography-root{
+    font-family: 'Pangram-Regular';
+    text-align: justify;
+    font-size: 17px;
+    color: black;
+}
+/* talla, color, ean producto */
+.css-46bh2p-MuiCardContent-root .css-ahj2mt-MuiTypography-root{
+    font-family: 'Pangram-Regular';
+    font-size: 14px;
+    color: black;
+    margin-block-end: 5px;
+}
+
+.css-1gcg9uy-MuiPaper-root-MuiCard-root .css-sghohy-MuiButtonBase-root-MuiButton-root{
+    font-family: 'Pangram-Regular';
+    font-size: 15px;
+
+}
+
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-185gdzj-MuiCardHeader-root{
+  padding-left: 5%;
+  padding-top: 0%;
+  padding-block-end: 0%;
+}
+
+div .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
+    background-color: none;
+    opacity: 3%;
+}
+/* titulo actualizar datos y registrarse */
+.css-1koj1hf .css-2ulfj5-MuiTypography-root {
+    font-family: 'Pangram-Bold';
+    font-size: 19px;    
+    text-transform: uppercase;
+
+}
+
+/* label nombre, apellido registrarse */
+.css-1koj1hf .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+    font-family: 'Pangram-Regular';
+}
+
+
+/* Nombre producto */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root{
+    font-family: 'Pangram-Regular';
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+/* flecha atras producto barcode */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1knaqv7-MuiButtonBase-root-MuiButton-root .css-155nyw6-MuiButton-endIcon {
+    display: inherit;
+    margin-right: 0;
+    margin-left: 0;
+    color: #000;
+}
+/* Nombre marca producto / dar mi calificacion */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-14rsl6m-MuiButtonBase-root-MuiCardActionArea-root{
+    font-family: 'Pangram-Regular';
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 15px;
+    padding-block-end: 4%;
+}
+
+/* boton enviar actualizar datos y registrarse */
+.css-1koj1hf .css-1qetiyy-MuiButtonBase-root-MuiButton-root{
+    font-family: 'Pangram-Regular';
+    background-color: #000;
+    font-Weight: 500;
+    font-Size: 12px;
+    border-Radius: 20px;
+
+}
+/* titulo Tu opinion es importante y cargando*/
+.css-1sk92lb .css-2ulfj5-MuiTypography-root{
+    font-family: 'Pangram-Bold';
+}
+/* Estrella de calificacion "tu opinion es importante"*/
+.css-79ws1d-MuiModal-root .css-jue3ft-MuiRating-root{
+  color: red;
+}
+/* contenedor descripcion producto */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-46bh2p-MuiCardContent-root{
+  padding: 0px 16px;
+}
+/* leer mas producto*/
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+    text-decoration: underline;
+    text-transform: initial;
+    color: black;
+    font-family: 'Pangram-Regular';
+    padding-left: 103px;
+    padding-top: 5%;
+    font-weight: 600;
+    font-size: 17px;
+}
+/*ver todo completa tu look*/
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1fvghj4-MuiButtonBase-root-MuiButton-root{
+  text-decoration: underline;
+  text-transform: initial;
+  color: black;
+  font-family: 'Pangram-Regular';
+  padding-top: 5%;
+  font-weight: 600;
+  font-size: 17px;
+}
+/* modal tu opinion es importante, cargando barcode, Formulario y actualizacion de datos exitoso */
+.css-79ws1d-MuiModal-root .css-1sk92lb{
+    height: 135px;
+    padding: 20px;
+    width: 265px;
+}
+/* boton atras iniciar sesion */
+.css-1u2gdj3 .css-1knaqv7-MuiButtonBase-root-MuiButton-root{
+    color: #000;
+    right: 115px;
+}
+/* boton atras combinalo con y mis favoritos */
+.css-1gcg9uy-MuiPaper-root-MuiCard-root .css-1knaqv7-MuiButtonBase-root-MuiButton-root{
+  color: #000;
+}
+/* botón enviar calificacion*/
+.css-1sk92lb .css-sghohy-MuiButtonBase-root-MuiButton-root{
+    font-family: 'Pangram-Regular';
+    border-radius: 20px;
+    background-color: black;
+}
+
+.opacidad{
+    opacity: 5;
+}
+
+.contenedorLogin {
+  background: #EEE;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;       
+}
+
+.contenedorFormulario {
+  background: #EEE;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.elemento {
+  width: 288px;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: 1px solid rgb(187, 187, 187);
+}
+/* boton cerrar */
+.css-10h8fes .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  color: rgb(133 133 133);
+  text-decoration: underline;
+  text-transform: capitalize;
+  left: 120px;
+}
+
+/* inicio descuento */
+.css-10h8fes .css-2ulfj5-MuiTypography-root{
+  font-family: 'Pangram-Bold';
+  line-height: 1.2;
+}
+/* boton ingresar iniciar sesion */
+.css-10h8fes  .css-sghohy-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  background-color: #000;
+  font-Weight: 500;
+  font-Size: 12px;
+  border-Radius: 20px;
+  margin-top: 5%;
+}
+/* boton registrarse */
+.css-10h8fes .css-6pjv17-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+
+}
+/* titulo iniciar sesion */
+.css-1u2gdj3 .css-2ulfj5-MuiTypography-root{
+  font-family: 'Pangram-Bold';
+}
+
+/* label usuario y clave */
+.css-1u2gdj3 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+  font-family: 'Pangram-Regular';
+
+}
+/* boton entrar iniciar sesion */
+.css-1u2gdj3 .css-1qetiyy-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  background-color: #000;
+  font-Weight: 500;
+  font-Size: 12px;
+  border-Radius: 20px;
+}
+/* boton olvido la contraseña */
+.css-1u2gdj3 .css-1u9kp6k-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  text-decoration: underline;
+}
+/* boton atras actualizar datos y registrarse */
+.css-1koj1hf .css-1knaqv7-MuiButtonBase-root-MuiButton-root{
+  color: #000;
+  right: 115px;
+  top: 6px;
+}
+/* label nombre, apellido, cedula, correo actualizar datos*/
+.css-1koj1hf .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root{
+  font-family: 'Pangram-Regular';
+
+}
+/* input actualizar datos y registrarse */
+.css-1koj1hf .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  font-family: 'Pangram-Regular';
+}
+/* descripcion Formulario y actualizacion de datos exitoso */
+.css-79ws1d-MuiModal-root .css-ix1f03-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+
+}
+
+/* titulo page usuario */
+.css-hpgf8j .css-1kgxqm0-MuiTypography-root {
+  font-family: 'Pangram-Bold';
+  font-size: 19px;    
+  text-transform: uppercase;
+
+}
+/* boton atras page usuario */
+.css-hpgf8j .css-1knaqv7-MuiButtonBase-root-MuiButton-root{
+  color: #000;
+  top: 6px;
+}
+/* label nombre, apellido, cedula, correo usuario*/
+.css-hpgf8j .css-ahj2mt-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+
+}
+/* input page usuario */
+.css-hpgf8j .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  font-family: 'Pangram-Regular';
+}
+
+/* slider productos combinalo con, descripcion y demás */
+.css-s5tji6-MuiPaper-root-MuiCard-root{
+  font-family: 'Pangram-Regular';
+
+}
+/* indicadores slider productos */
+.slick-slider .slick-dots{
+    bottom: -5px;
+}
+/* flecha slider siguiente */
+.slick-slider .slick-next{
+  background-color: rgb(255, 255, 255);
+  right: 6px;
+  top: 90px;
+  width: 0;
+  height: 0;
+}
+/* flecha slider atras */
+.slick-slider .slick-prev{
+  background-color: rgb(255, 255, 255);
+  left: -16px;
+  top: 90px;
+  width: 0;
+  height: 0;
+}
+/* flecha slider atras */
+.slick-slider .slick-prev:before{
+  color: black;
+  background-color: #fff;
+  font-size: 17px;
+}
+/* flecha slider siguiente */
+.slick-slider .slick-next:before{
+  color: black;
+  background-color: #fff;
+  font-size: 17px;
+}
+
+/* contenedor mis favoritos y combinalo con */
+.css-1gcg9uy-MuiPaper-root-MuiCard-root{
+  font-family: 'Pangram-Regular';
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+
+}
+
+/* titulo mis favoritos y combinalo con */
+.css-1gcg9uy-MuiPaper-root-MuiCard-root .css-2ulfj5-MuiTypography-root{
+  font-family: 'Pangram-Bold';
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* descripcion productos mis favoritos y combinalo con */
+.css-1yzxjgd-MuiImageListItemBar-root .css-186gwnw-MuiImageListItemBar-titleWrap{
+  font-family: 'Pangram-Regular';
+  text-decoration: none;
+  color: #000;
+}
+/* nombre productos mis favoritos y combinalo con */
+.css-1yzxjgd-MuiImageListItemBar-root .css-dasnyc-MuiImageListItemBar-title{
+  white-space: normal;
+  text-decoration: none;
+  font-size: 0.8rem;
+  line-height: 20px;
+}
+/* estrellas mis favoritos y combinalo con */
+.css-hk6gwf-MuiImageListItemBar-subtitle .css-3gzefp-MuiRating-root{
+  color: red;
+}
+/* estrellas slider productos */
+.slick-slider .css-3gzefp-MuiRating-root{
+  color: red;
+}
+
+/* estrellas dar mi calificacion */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1lauo1g-MuiRating-root{
+  color: red;
+}
+
+/* botón favoritos borde */
+.No-Me-Gusta .css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root{
+  background-color: #fff;
+  color: red;
+  position: absolute;
+  box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
+  margin-left: 233px;
+  margin-top: -45px;
+}
+.Me-Gusta .css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root{
+  background-color: #fff;
+  color: red;
+  position: absolute;
+  box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
+  margin-left: 180px;
+  margin-top: -30px;
+}
+/* botón favoritos hover */
+.css-1rwjz6-MuiCardActions-root .css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root:hover{
+  background-color: #fff;
+  color: red;
+  position: absolute;
+  box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
+  margin-left: 233px;
+  margin-top: -30px;
+}
+
+
+.css-z7qdtb .css-2ulfj5-MuiTypography-root {
+  font-family: 'Pangram-Bold';
+  font-size: 19px;    
+  text-transform: uppercase;
+
+}
+/* titulo escanear codigo de barras */
+.css-z7qdtb .css-1q6hquh-MuiTypography-root{
+  font-family: 'Pangram-Bold';
+  font-size: 19px;    
+  text-transform: uppercase;
+}
+/* home boton iniciar sesion e icono de usuario */
+.css-z7qdtb .css-e53awj-MuiStack-root{
+  font-family: 'Pangram-Regular';
+  height: 25px;
+}
+
+.css-z7qdtb .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+  font-family: 'Pangram-Regular';
+}
+
+.css-z7qdtb .css-xkxxc0-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+  color: #9c9c9c;
+  font-size: 16px;
+  margin-top: 0%;
+}
+/* descripcion escanear codigo de barras */
+.css-z7qdtb .css-mhqkff-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+  color: #9c9c9c;
+  font-size: 16px;
+  margin-block-end: 10px;
+}
+/* boton iniciar sesion home */
+.css-z7qdtb .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  text-transform: initial;
+  left: 34px;
+  top: -30px;
+  color: #000;
+
+}
+/* boton escanear home */
+.css-z7qdtb .css-1qetiyy-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  background-color: #000;
+  font-Weight: 500;
+  font-Size: 12px;
+  border-Radius: 20px;
+  margin-right: 40px;
+}
+/* boton mis favoritos, cerrar sesion home usuario */
+.css-z7qdtb .css-19urlth-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  text-transform: capitalize;
+  left: 45px;
+}
+/* descuento */
+.css-z7qdtb .css-1ddwp5-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  text-transform: initial;
+  color: red;
+  font-weight: 600;
+}
+/* avatar usuario combinalo con y mis favoritos */
+.css-1gcg9uy-MuiPaper-root-MuiCard-root .css-1wumn05-MuiAvatar-root{
+  margin-top: -27px;
+  margin-left: 260px;
+  box-shadow: 0px 0px 8px 0px blue;
+}
+/* avatar usuario producto */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1wumn05-MuiAvatar-root{
+  margin-top: -27px;
+  margin-left: 260px;
+  box-shadow: 0px 0px 8px 0px blue;
+}
+/* subtitulos usuario page */
+.css-1b0ve20 .css-2ulfj5-MuiTypography-root{
+  font-size: large;
+  font-family: 'Pangram-Bold';
+}
+/* descuento page usuario */
+.css-1b0ve20 .css-ph2xsj-MuiTypography-root{
+  color: red;
+  font-size: large;
+  font-family: 'Pangram-Regular';
+}
+
+/* ver mis prendas favoritas page usuario */
+.css-1b0ve20 .css-19urlth-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  color: black;
+  text-decoration: underline;
+  font-weight: 600;
+}
+/* boton actualizar datos page usuario */
+.css-1b0ve20 .css-1qetiyy-MuiButtonBase-root-MuiButton-root{
+  background-color: #000;
+  font-Weight: 500;
+  font-Size: 12px;
+  border-Radius: 20px;
+  width: 255px;
+  font-family: 'Pangram-Regular';
+}
+/* top prendas relacionadas */
+.css-1gcg9uy-MuiPaper-root-MuiCard-root .css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root{
+  margin-top: 5px;
+}
+/* boton escanear otra prenda */
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1pomucs-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  background-color: black;
+  width: 270px;
+  margin-top: 5%;
+}
+
+.estiloImgColorSeleccionada{
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-left: 5px;
+  width: 2em;
+  height: 2em;
+}
+
+.estiloImgColor{
+  border-radius: 20px;
+  margin-left: 5px;
+  width: 2em;
+  height: 2em;
+}
+
+/* mostrar ubicación de la prenda */
+.css-46bh2p-MuiCardContent-root .css-1u8o3rm-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+  color: blue;
+  font-weight: 600;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 445px;
+}
+/*Tiendas*/
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-2ulfj5-MuiTypography-root {
+  font-family: 'Pangram-Bold';
+  font-size: 19px;    
+  text-transform: uppercase;
+  text-align: center;
+
+}
+/* estilo texto pins del mapa */
+.leaflet-popup-content .css-ahj2mt-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+}
+
+/* error al leer el codigo de barras */
+.css-1sk92lb .css-ahj2mt-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+}
