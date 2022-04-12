@@ -8,6 +8,7 @@ import CombinaloCon from './pages/CombinaloCon';
 import Tiendas from './pages/Tiendas';
 import Api from './pages/Api';
 import Map from './componentes/Map';
+import InicioEmple from './pages/Empleado/InicioEmple';
 
 class App extends Component {
   render() {
@@ -55,6 +56,11 @@ class App extends Component {
             activeClassName="active">
             Map
           </NavLink>
+          <NavLink to='/Empleado' className="oculto"
+            exact
+            activeClassName="active">
+            Empleado
+          </NavLink>
           <Switch>
             <Route path="/" exact render={() => {
               return <div>
@@ -94,6 +100,11 @@ class App extends Component {
             <Route path="/Map" exact render={() => {
               return <div>
                 <Map />
+              </div>
+            }}></Route>
+            <Route path="/Empleado" exact render={() => {
+              return <div>
+                <InicioEmple />
               </div>
             }}></Route>
           </Switch>
