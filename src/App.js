@@ -9,7 +9,8 @@ import Tiendas from './pages/Tiendas';
 import Api from './pages/Api';
 import Map from './componentes/Map';
 import InicioEmple from './pages/Empleado/InicioEmple';
-import ValidarEmple from './pages/Empleado/InicioEmple';
+import ValidarEmple from './pages/Empleado/validarEmple';
+import LeerBono from './pages/Empleado/LeerBono';
 
 class App extends Component {
   render() {
@@ -67,6 +68,11 @@ class App extends Component {
             activeClassName="active">
             Empleado
           </NavLink>
+          <NavLink to='/Empleado/LeerBono' className="oculto"
+            exact
+            activeClassName="active">
+            Empleado
+          </NavLink>
           <Switch>
             <Route path="/" exact render={() => {
               return <div>
@@ -116,6 +122,11 @@ class App extends Component {
             <Route path="/Empleado/ValidarEmple/:cedula" exact render={() => {
               return <div>
                 <ValidarEmple />
+              </div>
+            }}></Route>
+            <Route path="/Empleado/LeerBono" exact render={() => {
+              return <div>
+                <LeerBono />
               </div>
             }}></Route>
           </Switch>
