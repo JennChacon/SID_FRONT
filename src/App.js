@@ -12,6 +12,7 @@ import InicioEmple from './pages/Empleado/InicioEmple';
 import ValidarEmple from './pages/Empleado/validarEmple';
 import LeerBono from './pages/Empleado/LeerBono';
 import ValidarBono from './pages/Empleado/validarBono';
+import DetalleBono from './pages/Empleado/DetalleBono';
 
 class App extends Component {
   render() {
@@ -79,6 +80,11 @@ class App extends Component {
             activeClassName="active">
             Empleado
           </NavLink>
+          <NavLink to='/Empleado/DetalleBono/:Bono' className="oculto"
+            exact
+            activeClassName="active">
+            Empleado
+          </NavLink>
           <Switch>
             <Route path="/" exact render={() => {
               return <div>
@@ -138,6 +144,11 @@ class App extends Component {
             <Route path="/Empleado/ValidarBono/:Bono" exact render={() => {
               return <div>
                 <ValidarBono />
+              </div>
+            }}></Route>
+            <Route path="/Empleado/DetalleBono/:Bono" exact render={() => {
+              return <div>
+                <DetalleBono />
               </div>
             }}></Route>
           </Switch>

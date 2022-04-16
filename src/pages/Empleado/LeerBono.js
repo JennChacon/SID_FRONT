@@ -28,6 +28,9 @@ const Inicio = () => {
     <div>
       <Container>
           <Box sx={style}>
+            <Button variant='contained' sx={{left: '250px', top: '-206px'}} href={`/Empleado/Productos`}>
+              Ver Productos Calificados
+            </Button>
             <Typography sx={{ marginBlockEnd: '10px' }} variant="h5" component="h2">
               Ingresar Bono Descuento
             </Typography>
