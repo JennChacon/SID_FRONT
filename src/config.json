@@ -1,8 +1,6 @@
 {
   "Api": {
-    "Interna": "http://pvp.crystal.com.co/apps/2precios/api/Referencia/Consultar",
-    "Ecommerce1": "https://www.gef.co/search/resources/api/v2/products?catalogId=10001&contractId=4000000000000000503&partNumber=",
-    "Ecommerce2": "&storeId=10151&langId=-24"
+    "Bono": "http://localhost:8080/api/gift/"
   },
   "BodyApiE":{
       "Usuario": "cpsUsr",

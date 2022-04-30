@@ -1,15 +1,22 @@
 import * as React from 'react';
+import GraficaProducto from '../../componentes/GraficaProducto'
 import { Box, Button, Container, Modal, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 
-const Inicio = () => {
-    const { Bono } = useParams();
-    const [cedula, setCedula] = React.useState();
-    const [EstadoBono, setEstadoBono] = React.useState('Disponible');
-    const [fecha, setFecha] = React.useState();
+const Inicio = ({datos}) => {
+    const [Bono, setBono]  = React.useState();
+    const [EstadoBono, setEstadoBono] = React.useState();
+    const [fechaC, setFechaC] = React.useState();
+    const [fechaA, setFechaA] = React.useState();
+
+    React.useEffect(() => {
+        setBono(datos.serial);
+        setEstadoBono(datos.state);
+        setFechaC(datos.creationDate);
+    },[]);
 
     const style = {
         height: '97vh',
@@ -59,15 +66,15 @@ const Inicio = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         let date = new Date();
-        setFecha(date.toLocaleDateString());
-        setEstadoBono('Redimido');
+        setFechaA(date.getFullYear() + "-" + (date.getMonth() < 10 ? "0"+date.getMonth(): date.getMonth())+ "-" + date.getDate());
+        setEstadoBono('NO DISPONIBLE');
         setOpen(false);
     }
 
     return (
         <Container>
           <Box sx={style}>
-            <Button size='large' variant='text' sx={{right: '327px', top: '-186px', color: 'black'}} onClick={back} endIcon={<ArrowBackIosIcon />}>
+            <Button size='large' variant='text' sx={{right: '465px', top: '-146px', color: 'black'}} onClick={back} endIcon={<ArrowBackIosIcon />}>
             </Button>
             <Container sx={{ width: '58%', display: 'flex',flexDirection: 'column' }}>
                 <Container sx={{display:'flex', justifyContent: 'left', alignItems: 'left',flexDirection: 'row'}}>
@@ -91,17 +98,17 @@ const Inicio = () => {
                         Fecha de creación:
                     </Typography>
                     <Typography sx={styleTypo} variant="h6" component="h2">
-                        03/4/2022
+                        {fechaC}
                     </Typography>
                 </Container>
                 {
-                    EstadoBono == 'Redimido' ?
+                    EstadoBono == 'NO DISPONIBLE' ?
                     <Container sx={{display:'flex', justifyContent: 'left', alignItems: 'left',flexDirection: 'row'}}>
                         <Typography sx={styleTypo} variant="h5" component="h2">
                             Fecha de Remisión:
                         </Typography>
                         <Typography sx={styleTypo} variant="h6" component="h2">
-                            {fecha}
+                            {fechaA}
                         </Typography>
                     </Container>
                     : ''
@@ -111,7 +118,7 @@ const Inicio = () => {
                         Estado:
                     </Typography>
                     {
-                        EstadoBono == 'Disponible' ?
+                        EstadoBono == 'DISPONIBLE' ?
                             <Typography sx={styleTypoEstadoDispo}  variant="h6" component="h2">
                                 {EstadoBono}
                             </Typography>
@@ -123,7 +130,7 @@ const Inicio = () => {
                 </Container>
             </Container><br></br>
             {
-                EstadoBono == 'Disponible' ?
+                EstadoBono == 'DISPONIBLE' ?
                 <Button variant='contained' onClick={handleOpen} >
                     Cambiar estado
                 </Button>
@@ -139,12 +146,15 @@ const Inicio = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styleModal}>
-                <Typography variant="h5" component="h2">
-                    Estado Cambiado
-                </Typography>
-                <Typography sx={{ mt: 2 }}>
-                    El estado se cambió correctamente
-                </Typography>
+                    <Typography variant="h5" component="h2">
+                        Estado Cambiado
+                    </Typography>
+                    <Typography sx={{ mt: 2 }}>
+                        El estado se cambió correctamente
+                    </Typography><br></br>
+                    <Button variant='contained' onClick={handleClose} >
+                        Cerrar
+                    </Button>
                 </Box>
             </Modal>
           </Box>

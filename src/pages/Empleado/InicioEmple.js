@@ -6,6 +6,12 @@ import Typography from '@mui/material/Typography';
 const Inicio = () => {
 
   const [cedula, setCedula] = React.useState();
+  const onTextChange = (e) => setCedula(e.target.value);
+  const handleSubmit = () => {
+    return (
+      window.location.href = `/Empleado/ValidarEmple/${cedula}`
+    )
+  };
 
   const style = {
     height: '97vh',
@@ -18,10 +24,6 @@ const Inicio = () => {
     boxShadow: 20,
   };
 
-  const handleChange=(event)=> {
-    setCedula(event.target.value);
-  };
-
   return (
     <div>
       <Container>
@@ -29,8 +31,15 @@ const Inicio = () => {
             <Typography sx={{ marginBlockEnd: '10px' }} variant="h5" component="h2">
               Inicio de sesión empleado
             </Typography>
-            <TextField sx={{ marginBlockEnd: '10px' }} onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,12)}} onChange={handleChange} type="number" id="cedula" label="Cédula" variant="outlined" />
-            <Button variant='contained' href={`/Empleado/ValidarEmple/${cedula}`}>
+            <TextField sx={{ marginBlockEnd: '10px' }}
+             onChange={onTextChange} 
+             value={cedula}
+             type="number" 
+             id="cedula" 
+             label="Cédula" 
+             variant="outlined"
+             required />
+            <Button variant='contained' onClick={handleSubmit}>
               Enviar
             </Button>
           </Box>

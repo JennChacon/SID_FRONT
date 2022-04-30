@@ -578,7 +578,7 @@ font-family: 'Pangram-Regular';
 background-color: black;
 }
 
-.css-5djx1i .css-wplvpc-MuiButtonBase-root-MuiButton-root{
+.css-5djx1i .css-1msch9z-MuiButtonBase-root-MuiButton-root{
 font-family: 'Pangram-Regular';
 background-color: black;
 }
@@ -603,4 +603,33 @@ background-color: black;
 .css-5djx1i .css-1ic76iz-MuiTypography-root{
   font-family: 'Pangram-Regular';
 
+}
+
+.css-1vr8yyi-MuiGrid-root .css-xuaunq-MuiGrid-root{
+  font-family: 'Pangram-Regular';
+
+}
+
+.css-1vr8yyi-MuiGrid-root .css-x85lfl-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+}
+
+.css-1vr8yyi-MuiGrid-root .css-k7uoh7-MuiGrid-root{
+  font-family: 'Pangram-Regular';
+
+}
+
+.css-1vr8yyi-MuiGrid-root .css-tuno3u-MuiTypography-root{
+  font-family: 'Pangram-Bold';
+
+}
+
+.css-1wnsr1i .css-ag7rrr-MuiTypography-root{
+  font-family: 'Pangram-Regular';
+
+}
+
+.css-1wnsr1i .css-sghohy-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Pangram-Regular';
+  background-color: #000;
 }

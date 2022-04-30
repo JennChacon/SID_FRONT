@@ -1,11 +1,23 @@
-import * as React from 'react';
-import { Box, Button, Container, TextField } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import TextField from "@material-ui/core/TextField";
+import React, { useEffect, useState } from "react";
+import { Alert, Box, Button, Container, Typography } from "@mui/material";
+import { Redirect } from "react-router-dom";
 
 
 const Inicio = () => {
+  const [bono, setbono] = useState("");
+  const onTextChange = (e) => setbono(e.target.value);
 
-  const [Bono, setBono] = React.useState();
+
+  const handleSubmit = () => {
+    if(bono){
+      return (
+        window.location.href = `/Empleado/ValidarBono/${bono}`
+      )
+    }else{
+      
+    }
+  };
 
   const style = {
     height: '97vh',
@@ -18,27 +30,29 @@ const Inicio = () => {
     boxShadow: 20,
   };
 
-  const handleChange=(event)=> {
-    console.log("s");
-    setBono(event.target.value);
-    console.log(Bono);
-  };
-
   return (
     <div>
       <Container>
-          <Box sx={style}>
-            <Button variant='contained' sx={{left: '250px', top: '-206px'}} href={`/Empleado/Productos`}>
-              Ver Productos Calificados
-            </Button>
-            <Typography sx={{ marginBlockEnd: '10px' }} variant="h5" component="h2">
-              Ingresar Bono Descuento
-            </Typography>
-            <TextField sx={{ marginBlockEnd: '10px' }} onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,13)}} onChange={handleChange} type="number" id="bono" label="Bono" variant="outlined" />
-            <Button variant='contained' href={`/Empleado/ValidarBono/${Bono}`}>
-              Validar
-            </Button>
-          </Box>
+        <Box sx={style}>
+          <Button variant='contained' sx={{ left: '430px', top: '-206px' }} href={`/Empleado/ProductosCalificados`}>
+            Ver Productos Calificados
+          </Button>
+          <Typography sx={{ marginBlockEnd: '10px' }} variant="h5" component="h2">
+            Ingresar Bono Descuento
+          </Typography>
+          <TextField sx={{ marginBlockEnd: '10px' }}
+            onChange={onTextChange}
+            value={bono}
+            type="text" 
+            id="bono" 
+            label="Bono" 
+            variant="outlined"
+            required
+          /><br></br>
+          <Button variant='contained' onClick={handleSubmit}>
+            Validar
+          </Button>
+        </Box>
       </Container>
     </div>
   );
