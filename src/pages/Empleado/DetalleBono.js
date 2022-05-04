@@ -16,6 +16,7 @@ const Inicio = ({datos}) => {
         setBono(datos.serial);
         setEstadoBono(datos.state);
         setFechaC(datos.creationDate);
+        setFechaA(datos.actualizationDate);
     },[]);
 
     const style = {

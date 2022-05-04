@@ -1,6 +1,6 @@
 {
   "Api": {
-    "Bono": "http://localhost:8080/api/gift/"
+    "url": "http://localhost:8080/api/"
   },
   "BodyApiE":{
       "Usuario": "cpsUsr",
