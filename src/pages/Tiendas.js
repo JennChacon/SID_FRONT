@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import data from "../static/data.json";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Avatar, Button, Card, CardActionArea, Typography } from "@mui/material";
 import { blue } from "@mui/material/colors";
 import { useLocation } from "react-router-dom";
 
-const MapView = (props) => {
+const MapView = ({datos, latitude, longitude}) => {
+  const [pos, setpos] = useState([]);
+  const [pos1, setpos1] = useState({});
+  console.log(datos);
+  console.log(latitude);
+  
   const location = useLocation();
   const [state, setState] = useState({
-    currentLocation: { lat: location.state.latitude, lng: location.state.longitude },
+    currentLocation: { lat: latitude, lng: longitude },
     zoom: 10,
-    data,
   });
+  console.log(state.currentLocation);
+
   const back = () => {
     window.history.back();
   }
@@ -32,11 +37,12 @@ const MapView = (props) => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           {
-            data.map((place, i) => {
-              return <Marker key={i} position={place.geometry} >
+            datos.map((d) => {
+              return <Marker key={d.serial} position={d.geography}>
                 <Popup>
-                  <Typography><b>{place.name}</b></Typography>
-                  <Typography><b>Direccion:</b> {place.description}</Typography>
+                  <Typography><b>{d.name}</b></Typography>
+                  <Typography><b>Direccion:</b> {d.address}</Typography>
+                  <Typography><b>Unidades disponibles:</b> {d.stock}</Typography>
                 </Popup>
               </Marker>
             })

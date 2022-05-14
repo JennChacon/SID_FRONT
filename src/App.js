@@ -56,7 +56,7 @@ class App extends Component {
             activeClassName="active">
             Tiendas
           </NavLink>
-          <NavLink to='/Map' className="oculto"
+          <NavLink to='/Map/:ean' className="oculto"
             exact
             activeClassName="active">
             Map
@@ -127,7 +127,7 @@ class App extends Component {
                 <Tiendas />
               </div>
             }}></Route>
-            <Route path="/Map" exact render={() => {
+            <Route path="/Map/:ean" exact render={() => {
               return <div>
                 <Map />
               </div>

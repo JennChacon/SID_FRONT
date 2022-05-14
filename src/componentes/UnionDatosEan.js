@@ -2,92 +2,102 @@ import Producto from './Producto';
 import config from '../config.json'
 import { Redirect } from 'react-router-dom';
 import { color } from '@mui/system';
+import Cargando from '../componentes/Cargando';
+import Error from '../componentes/Error';
 import React from 'react';
 
-const UnionDatosEan=({ datosEcommerce: DatosE, datosApiIn: DatosI }) => {
-  const [strColor,setColor] = React.useState('');
-  const reemplazar =(desc)=>{
-    const descr = desc.replace(/<[^>]*>?/g,'*')
-    return descr.split('**')
-  }
-  
-  const double = (pre) =>{
+const UnionDatosEan = ({ datos: DatosP }) => {
+  const [Imagenes, setImagenes] = React.useState({});
+  const [Tallas, setTallas] = React.useState({});
+  const [Colores, setColores] = React.useState({});
+  const [err, setErr] = React.useState(false)
+  const [loading1, setLoading1] = React.useState(true)
+  const [loading2, setLoading2] = React.useState(true)
+  const [loading3, setLoading3] = React.useState(true)
+
+  React.useEffect(() => {
+    setLoading1(true)
+    setLoading2(true)
+    setLoading3(true)
+    const fetchImages = async () => {
+      try {
+        const res = await fetch(
+          config.Api.url + "product/images/" + DatosP.ean
+        );
+        const respuesta = await res.json()
+        setImagenes(respuesta.info)
+        console.log(respuesta.info)
+        setLoading1(false)
+      } catch (error) {
+        setErr(true)
+      }
+    };
+
+    const fetchTallas = async () => {
+      try {
+        const res = await fetch(
+          config.Api.url + "product/talla-referencia/" + DatosP.codeReference
+        );
+        const respuesta = await res.json()
+        setTallas(respuesta.info)
+        console.log(respuesta.info)
+        setLoading2(false)
+      } catch (error) {
+        setErr(true)
+      }
+    };
+
+    const fetchColores = async () => {
+      try {
+        const res = await fetch(
+          config.Api.url + "product/color-referencia/" + DatosP.codeReference
+        );
+        const respuesta = await res.json()
+        setColores(respuesta.info)
+        console.log(respuesta.info)
+        setLoading3(false)
+      } catch (error) {
+        setErr(true)
+      }
+    };
+
+    fetchImages();
+    fetchTallas();
+    fetchColores();
+  }, []);
+
+  const double = (pre) => {
     const preci = parseFloat(pre).toLocaleString('en')
-    return preci.replace(',','.')
+    return preci.replace(',', '.')
   }
 
-  const concatenar =(tienda, dato)=>{
-    const tiendas = config.Tiendas
-
-    for (const i in tiendas) {
-      if(tienda === i){
-        return tiendas[i].url+dato
-      }
-    }
-  }
-
-  const tiendaNombre=(tienda)=>{
-    const tiendas = config.Tiendas
-
-    for (const i in tiendas) {
-      if(tienda === i){
-        return tiendas[i].nombre
-      }
-    }
-  }
-
-  const validarUrl= ()=>{
-    var url = ''
-    try{
-      if(DatosE.seo.href){
-        url = DatosE.seo.href
-      }else{
-        url = ''
-      }
-    }catch(e){
-        url = ''
-    }
-    return url
-  }
-  const color = ()=>{
-    if(DatosE.attributes[1].identifier === 'swatchColor'){
-      return DatosE.attributes[1].values[0].identifier;
-    }else{
-      if(DatosE.attributes[2].identifier === 'swatchColor'){
-        return DatosE.attributes[2].values[0].identifier;
-      }
-    }
-  }
-  const talla = (t)=>{
-    return `https://www.gef.co/dx/api/dam/custom/crystalco_cat_as/gef/es-co/imagenes/swatches/swatches_tallas/negros/adultos/adultos_${t}.png`;
-
-  }
-  const ImgColor = (c)=>{
-    var co = c.replace(" ","-");
-    var colo = co.replace(" ","-");
-    return `https://www.gef.co/dx/api/dam/custom/crystalco_cat_as/2020/gef/es-co/imagenes/swatches/swatches_genericos/${colo}.png`;
-
-  }
-//'ImgColor':concatenar(DatosE.storeID,DatosE.attributes[1].values[0].image1path),
+  //'ImgColor':concatenar(DatosE.storeID,DatosE.attributes[1].values[0].image1path),
   const datos = {
-    'Nombre' : DatosE.name,
-    'Precio' : DatosI.Precio?double(DatosI.Precio):'',
-    'DescripcionCorta':DatosI.NombreArticulo,
-    'Descripcion' : DatosE.longDescription?reemplazar(DatosE.longDescription):'',
-    'Imagen' : concatenar(DatosE.storeID,DatosE.thumbnail),
-    'Talla':DatosI.Talla?'Talla: '+DatosI.Talla:'',
-    'ImgTalla': talla(DatosI.Talla),
-    'Ean': DatosI.EAN,
-    'Tienda': tiendaNombre(DatosE.storeID),
-    'Composicion': DatosI.ComposicionEspanol?'Composición: '+DatosI.ComposicionEspanol:'' + DatosI.ComposicionEspanol2?DatosI.ComposicionEspanol2:'',
-    'Color': 'Color: ' + color(),
-    'ImgColor': ImgColor(color()),
-    'Url':concatenar(DatosE.storeID,validarUrl())
+    'Nombre': DatosP.nameReference + " " + DatosP.color.name + " " + DatosP.size.name,
+    'Precio': double(DatosP.price),
+    'DescripcionCorta': DatosP.nameReference,
+    'Descripcion': DatosP.nameReference + " de color " + DatosP.color.name + " en talla " + DatosP.size.name + " con un precio de " + double(DatosP.price),
+    'Imagen': Imagenes,
+    'Talla': DatosP.size.name,
+    'Tallas': Tallas,
+    'Ean': DatosP.ean,
+    'Tienda': 'Gef',
+    'Composicion': 'Composición: Algodón',
+    'Color': DatosP.color.name,
+    'Colores': Colores,
+    'Calificacion' : DatosP.qualificationId
   };
 
   return (
     <div>
-      <Producto datos={datos} />
+      {
+        err
+          ? <Error />
+          : loading1 || loading2 || loading3
+            ? <Cargando />
+            :
+            <Producto datos={datos} />
+      }
     </div>
   );
 }
