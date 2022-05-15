@@ -376,22 +376,52 @@ div .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
 }
 
 /* botón favoritos borde */
-.No-Me-Gusta .css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root {
+.No-Me-Gusta .css-1qetiyy-MuiButtonBase-root-MuiButton-root:hover {
   background-color: #fff;
   color: red;
   position: absolute;
   box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
   margin-left: 233px;
-  margin-top: -45px;
+  margin-top: -61px;
+  min-width: 10px;
+  border-radius: 30px;
 }
 
-.Me-Gusta .css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root {
+.No-Me-Gusta .css-1qetiyy-MuiButtonBase-root-MuiButton-root {
   background-color: #fff;
   color: red;
   position: absolute;
   box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
-  margin-left: 180px;
+  margin-left: 233px;
+  margin-top: -61px;
+  min-width: 10px;
+  border-radius: 30px;
+}
+
+.Me-Gusta .css-1qetiyy-MuiButtonBase-root-MuiButton-root {
+  background-color: #fff;
+  color: red;
+  position: absolute;
+  box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
+  margin-left: 167px;
   margin-top: -30px;
+  min-width: 5px;
+  border-radius: 30px;
+}
+
+.Me-Gusta .css-1qetiyy-MuiButtonBase-root-MuiButton-root:hover {
+  background-color: #fff;
+  color: red;
+  position: absolute;
+  box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
+  margin-left: 167px;
+  margin-top: -30px;
+  min-width: 5px;
+  border-radius: 30px;
+}
+
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1d6wzja-MuiButton-startIcon{
+  margin: 0;
 }
 
 /* botón favoritos hover */
@@ -402,6 +432,10 @@ div .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
   box-shadow: 0px 0px 10px 0px rgb(181 181 181 / 87%);
   margin-left: 233px;
   margin-top: -30px;
+}
+
+.css-s5tji6-MuiPaper-root-MuiCard-root .css-1d6wzja-MuiButton-startIcon>*:nth-of-type(1){
+  font-size: 25px;
 }
 
 

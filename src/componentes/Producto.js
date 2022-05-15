@@ -2,12 +2,10 @@ import * as React from 'react';
 import { Box, Button, CardActions, IconButton, Input, Modal } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import SliderProducts from './SliderProducts';
 import ImagenProducto from './ImagenProducto';
 import Rating from '@mui/material/Rating';
@@ -21,14 +19,13 @@ import tallaS from '../static/img/adultos_S.png';
 import tallaL from '../static/img/adultos_L.png';
 import tallaM from '../static/img/adultos_M.png';
 import tallaXL from '../static/img/adultos_XL.png';
-import config from '../config.json'
+import config from '../config.json';
 
 const Producto = ({ datos }) => {
     const [open, setOpen] = React.useState(false);
     const [Favorito, setFavorito] = React.useState(false);
     const [NoFavorito, setNoFavorito] = React.useState(false);
     const [err, setErr] = React.useState(false);
-    const [loading1, setLoading1] = React.useState(true);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -60,7 +57,6 @@ const Producto = ({ datos }) => {
         body: JSON.stringify({ title: 'Fetch PUT Request Example' })
     };
 
-
     const fetchMeGusta = async () => {
         console.log('megusta');
         try {
@@ -71,22 +67,21 @@ const Producto = ({ datos }) => {
             setFavorito(true);
             setNoFavorito(false);
             console.log(respuesta.info)
-            setLoading1(false)
         } catch (error) {
             setErr(true)
         }
     };
 
     const fetchNoMeGusta = async () => {
+        console.log('megusta')
         try {
             const res = await fetch(
-                config.Api.url + "product/qualification/" + datos.qualificationId + "/1", requestOptions
+                config.Api.url + "product/qualification/" + datos.Calificacion + "/1", requestOptions
             );
             const respuesta = await res.json()
             setFavorito(false);
             setNoFavorito(true);
             console.log(respuesta.info)
-            setLoading1(false)
         } catch (error) {
             setErr(true)
         }
@@ -105,20 +100,24 @@ const Producto = ({ datos }) => {
                 <CardHeader subheader={`$ ${datos.Precio}`} title={datos.Nombre} />
                 <ImagenProducto imagenes={datos.Imagen} />
                 <CardActions className="Me-Gusta" disableSpacing >
-                    <label htmlFor='icon-button-file'>
-                        <Input id='icon-button-file' onClick={fetchMeGusta} />
-                        <IconButton color='primary' aria-label='upload picture' component='span'>
-                            <ThumbUpIcon />
-                        </IconButton>
-                    </label>
+                    {
+                        Favorito ?
+                            <Button sx={{ marginBlockEnd: '3px' }} variant='contained' onClick={fetchMeGusta} startIcon={<ThumbUpIcon fontSize="large" />} >
+                            </Button>
+                            :
+                            <Button sx={{ marginBlockEnd: '3px' }} variant='contained' onClick={fetchMeGusta} startIcon={<ThumbUpOffAltIcon fontSize="large" />} >
+                            </Button>
+                    }
                 </CardActions>
                 <CardActions className="No-Me-Gusta" disableSpacing>
-                    <label htmlFor='icon-button-file2'>
-                        <Input id='icon-button-file2' onClick={fetchNoMeGusta} />
-                        <IconButton color='primary' aria-label='upload picture' component='span'>
-                            <ThumbDownAltIcon />
-                        </IconButton>
-                    </label>
+                {
+                        NoFavorito ?
+                            <Button sx={{ marginBlockEnd: '3px' }} variant='contained' onClick={fetchNoMeGusta} startIcon={<ThumbDownAltIcon fontSize="large" />} >
+                            </Button>
+                            :
+                            <Button sx={{ marginBlockEnd: '3px' }} variant='contained' onClick={fetchNoMeGusta} startIcon={<ThumbDownOffAltIcon fontSize="large" />} >
+                            </Button>
+                    }
                 </CardActions>
                 <CardContent >
                     {datos.Descripcion}
