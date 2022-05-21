@@ -45,11 +45,11 @@ const Inicio = () => {
     const fetchEmple = async () => {
       try {
         const res = await fetch(
-          config.Api.url + "users/" + cedula
+          config.Api.url + "users/employee/" + cedula
         );
         const respuesta = await res.json()
         console.log(respuesta);
-        setapiempleado(respuesta.name);
+        respuesta.info ? setapiempleado(respuesta.info) : setErr(true)
         setLoading1(false)
       } catch (error) {
         setErr(true)
