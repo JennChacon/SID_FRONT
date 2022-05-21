@@ -9,7 +9,6 @@ const MapView = ({datos, latitude, longitude}) => {
   const [pos, setpos] = useState([]);
   const [pos1, setpos1] = useState({});
   console.log(datos);
-  console.log(latitude);
   
   const location = useLocation();
   const [state, setState] = useState({
