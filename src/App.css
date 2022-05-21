@@ -603,7 +603,6 @@ div .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
   width: 1.5em;
   height: 1.5em;
   margin-top: 14%;
-  margin-left: 15%;
 }
 
 .estiloImgColor {
@@ -612,8 +611,7 @@ div .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
   margin-left: 5px;
   width: 1.5em;
   height: 1.5em;
-  margin-top: -12%;
-  margin-left: 20%;
+  margin-top: 2%;
 }
 
 /* mostrar ubicación de la prenda */

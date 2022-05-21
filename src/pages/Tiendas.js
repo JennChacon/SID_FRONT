@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 const MapView = ({datos, latitude, longitude}) => {
   const [pos, setpos] = useState([]);
   const [pos1, setpos1] = useState({});
-  console.log(datos);
   
   const location = useLocation();
   const [state, setState] = useState({

@@ -3,10 +3,36 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Button, Rating } from '@mui/material';
+import config from '../config.json';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import CombinaloCon from '../pages/CombinaloCon';
 
-const SliderProducts = ({ ean }) => {
+const SliderProducts = ({ ocasion }) => {
+    const [loading1, setLoading1] = React.useState(true)
+    const [productos, setproductos] = React.useState([])
+    const [err, setErr] = React.useState(false);
+
+    React.useEffect(() => {
+        setLoading1(true)
+        const fetchEmple = async () => {
+          try {
+            const res = await fetch(
+              config.Api.url + "product/ocassionType/" + ocasion
+            );
+            const respuesta = await res.json()
+            console.log(respuesta);
+            setproductos(respuesta.info);
+            setLoading1(false)
+          } catch (error) {
+            setErr(true)
+            setLoading1(false)
+            console.log("respuesta");
+          }
+        };
+    
+        fetchEmple();
+      }, []);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -62,19 +88,16 @@ const SliderProducts = ({ ean }) => {
             <h4> COMPLETA TU LOOK... </h4>
             <Slider {...settings}>
                 {
-                    pro.map(ele => {
-                        return <div key={ele.id}>
-                            <a href={`/Api/${ele.ean}`} style={styleA}>
-                                <img width={130} src={ele.img} />
-                                <h6>{ele.descripcion}<br></br>$ {ele.precio}<br></br>
-                                <Rating name='size-small' defaultValue={ele.calificacion} precision={0.5} sx={{fontSize:'0.9rem'}} readOnly />
-                                </h6>
+                    productos.map(ele => {
+                        return <div key={ele.product.ean}>
+                            <a href={`/Api/${ele.product.ean}`} style={styleA}>
+                                <img width={130} src={ele.image} />
+                                <h6>{ele.product.nameReference} {ele.product.color.name} {ele.product.size.name}<br></br>$ {ele.product.price}<br></br></h6>
                                 </a>
                         </div>
                     })
                 }
-            </Slider>
-            <Button sx={{paddingLeft:'167px'}} variant='text' href={`/CombinaloCon/${ean}`} endIcon={<ArrowRightAltIcon />}>
+            </Slider><Button sx={{paddingLeft:'167px'}} variant='text' href={`/CombinaloCon/${ocasion}`} endIcon={<ArrowRightAltIcon />}>
                 Ver todo
             </Button>
         </div>

@@ -41,7 +41,7 @@ class App extends Component {
             activeClassName="active">
             Formulario
           </NavLink>
-          <NavLink to='/CombinaloCon/:ean' className="oculto"
+          <NavLink to='/CombinaloCon/:ocasion' className="oculto"
             exact
             activeClassName="active">
             Combinalo
@@ -112,7 +112,7 @@ class App extends Component {
                 <Formulario />
               </div>
             }}></Route>
-            <Route path="/CombinaloCon/:ean" exact render={() => {
+            <Route path="/CombinaloCon/:ocasion" exact render={() => {
               return <div>
                 <CombinaloCon />
               </div>

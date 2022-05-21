@@ -85,7 +85,8 @@ const UnionDatosEan = ({ datos: DatosP }) => {
     'Composicion': 'Composición: Algodón',
     'Color': DatosP.color.name,
     'Colores': Colores,
-    'Calificacion' : DatosP.qualificationId
+    'Calificacion' : DatosP.qualificationId,
+    'Ocasion': DatosP.ocassionTypeId
   };
 
   return (

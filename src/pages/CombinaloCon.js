@@ -2,13 +2,38 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import config from '../config.json';
 import { Avatar, Button, Card, CardActionArea, CardHeader, Container, Rating, Typography } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useParams } from 'react-router-dom';
 import { blue } from '@mui/material/colors';
 
 const MisFavoritos = () => {
-    const { ean } = useParams();
+    const { ocasion } = useParams();
+    const [loading1, setLoading1] = React.useState(true)
+    const [productos, setproductos] = React.useState([])
+    const [err, setErr] = React.useState(false);
+
+    React.useEffect(() => {
+        setLoading1(true)
+        const fetchEmple = async () => {
+          try {
+            const res = await fetch(
+              config.Api.url + "product/ocassionType/" + ocasion
+            );
+            const respuesta = await res.json()
+            console.log(respuesta);
+            setproductos(respuesta.info);
+            setLoading1(false)
+          } catch (error) {
+            setErr(true)
+            setLoading1(false)
+            console.log("respuesta");
+          }
+        };
+    
+        fetchEmple();
+      }, []);
     const pro = [
         {
             'id': 1,
@@ -68,20 +93,17 @@ const MisFavoritos = () => {
                 Prendas relacionadas
             </Typography>
             <ImageList sx={{ width: 300, height: 450 }}>
-                {pro.map((item) => (
-                    <a style={styleA} href={`/Api/${item.ean}`} >
-                        <ImageListItem key={item.img} sx={{ width: 145}}>
+                {productos.map((item) => (
+                    <a style={styleA} href={`/Api/${item.product.ean}`} >
+                        <ImageListItem key={item.image} sx={{ width: 145}}>
                             <img
-                                src={item.img}
-                                srcSet={item.img}
-                                alt={item.id}
+                                src={item.image}
+                                srcSet={item.image}
                                 loading='lazy'
                             />
                             <ImageListItemBar
-                                title={item.descripcion}
-                                subtitle={<span>$ {item.precio} <br></br>
-                                    <Rating name='size-small' defaultValue={item.calificacion} precision={0.5} sx={{ fontSize: '0.9rem' }} readOnly />
-                                </span>}
+                                title={`${item.product.nameReference} ${item.product.color.name} ${item.product.size.name}`}
+                                subtitle={<span>$ {item.product.price} </span>}
                                 position='below'
                             />
 

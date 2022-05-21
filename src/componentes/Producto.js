@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, CardActions, IconButton, Input, Modal } from '@mui/material';
+import { Box, Button, CardActions, Grid, IconButton, Input, Modal } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
@@ -163,19 +163,21 @@ const Producto = ({ datos }) => {
                     <Typography>
                         Color: {datos.Color}
                     </Typography>
-                    {datos.Colores.map(ele => {
-                        if (datos.Color == ele.name) {
-                            return <div className='estiloImgColorSeleccionada'>
-                                <div className='estiloImgColorBorder'>
+                    <Grid container>
+                        {datos.Colores.map(ele => {
+                            if (datos.Color == ele.name) {
+                                return <div className='estiloImgColorSeleccionada'>
+                                    <div className='estiloImgColorBorder'>
+                                        <CircleIcon sx={{ color: ele.palette }} />
+                                    </div>
+                                </div>
+                            } else {
+                                return <div className='estiloImgColor'>
                                     <CircleIcon sx={{ color: ele.palette }} />
                                 </div>
-                            </div>
-                        } else {
-                            return <div className='estiloImgColor'>
-                                <CircleIcon sx={{ color: ele.palette }} />
-                            </div>
-                        }
-                    })}
+                            }
+                        })}
+                    </Grid>
                     <br></br>
                     <Typography >
                         Código del artículo: {datos.Ean}
@@ -189,30 +191,9 @@ const Producto = ({ datos }) => {
                         Escanear otra prenda
                     </Button>
                     <hr></hr>
-                    <SliderProducts ean={datos.Ean} />
+                    <SliderProducts ocasion={datos.Ocasion} />
                 </CardContent>
             </Card>
-            <Modal
-                open={open}
-                aria-labelledby='modal-modal-title'
-                aria-describedby='modal-modal-description'
-            >
-                <Box sx={style}>
-                    <Typography id='modal-modal-title' variant='h6' component='h2'>
-                        ¡Tu opinión es importante!
-                    </Typography>
-                    <Typography id='modal-modal-title' variant='h6' component='h2'>
-                        <Rating name='half-rating' precision={0.5} size='large' />
-                    </Typography>
-                    <Button variant='contained' onClick={handleClose}>
-                        Enviar
-                    </Button>
-                    <br></br>
-                    <Button sx={{ color: 'gray', textDecoration: 'underline', textTransform: 'capitalize' }} variant='text' onClick={handleClose}>
-                        Cerrar
-                    </Button>
-                </Box>
-            </Modal>
         </div>
     );
 }
